@@ -19,7 +19,7 @@ from django.urls import path
 from contact.views import contact
 from home.views import home
 from settings.views import settings
-from products.views import ProductList
+from products.views import ProductList,AddProduct
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('settings',settings,name='settings'),
     path('home',home,name='home'),
     path('products',ProductList,name='p_list'),
+    path('addproduct',AddProduct,name='addproduct'),
 ]
