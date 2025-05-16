@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+{% block content%}
+
+<form method="post" enctype="multipart/form-data" class="mt-3">
+    {% csrf_token %}
+  <div class="input-group mb-3">
+    <span class="input-group-text">Name</span>
+    <input type="text" name="name" class="form-control" required />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">password</span>
+    <input type="text" name="password" class="form-control" required />
+  </div>
+  {% comment %} <div class="input-group">
+    <span class="input-group-text">Date of Birth</span>
+    <input type="date" name="dob" class="form-control" required />
+  </div> {% endcomment %}
+  <div class="input-group mb-3">
+    <span class="input-group-text">email</span>
+    <input type="email" name="email" class="form-control" required />
+  </div>
+  {% comment %} <div class="input-group mb-3">
+    <span class="input-group-text">phone</span>
+    <input type="number" name="phone" class="form-control" required />
+  </div> {% endcomment %}
+  <button type="submit" class="btn btn-primary">Add USER</button>
+  <a href="{% url 'regform' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock content%}

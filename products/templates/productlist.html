@@ -11,6 +11,8 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item">Price: {{ product.price }}</li>
+          <li class="list-group-item"><button class='btn'><a href="{% url 'deleteproduct' product.id %}" class="btn btn-secondary">delete</a></button></li>
+          <li class="list-group-item"><button class='btn'><a href="{% url 'updateproduct' product.id %}" class="btn btn-secondary">update</a></button></li>
         </ul>
       </div>
     </div>

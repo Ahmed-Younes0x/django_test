@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{% block content%}
+
+<form method="post" enctype="multipart/form-data" class="mt-3">
+    {% csrf_token %}
+  <div class="input-group mb-3">
+    <span class="input-group-text">Name</span>
+    <input type="text" name="name" class="form-control" required />
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-text">password</span>
+    <input type="text" name="password" class="form-control" required />
+  </div>
+
+  <button type="submit" class="btn btn-primary">login</button>
+  <a href="{% url 'loginform' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{%endblock content%}

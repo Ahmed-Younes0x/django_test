@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'contact',
     'home',
     'settings',
-    'products'
+    'products',
+    'login',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
@@ -83,6 +83,16 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#     'ENGINE': 'django.db.backends.postgresql',
+#     'NAME': 'your_database_name',
+#     'USER': 'your_username',
+#     'PASSWORD': 'your_password',
+#     'HOST': 'localhost',
+#     'PORT': '5432', # default PostgreSQL port
+# }
+# }
 
 
 # Password validation

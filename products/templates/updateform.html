@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="container mt-4">
+  <h2>update Product</h2>
+  <form method="post" enctype="multipart/form-data" class="mt-3">
+    {% csrf_token %}
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Description</span>
+      <textarea
+        name="description"
+        class="form-control"
+        rows="3"
+        
+      >{{product.description}}</textarea>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-text">Creation Date</span>
+          <input
+            type="date"
+            name="creation_date"
+            class="form-control"
+            
+        value={{product.creation_date|date:'Y-m-d'}}
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group">
+          <span class="input-group-text">Expiry Date</span>
+          <input type="date" name="ex_date" class="form-control" value={{product.ex_date|date:'Y-m-d'}} />
+        </div>
+      </div>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text">Price ($)</span>
+      <input
+        type="number"
+        name="price"
+        step="0.01"
+        class="form-control"
+        value={{product.price}}
+      />
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">update</button>
+    {% comment %} <a href="{% url 'updateproduct' %}" class="btn btn-secondary">Cancel</a> {% endcomment %}
+  </form>
+</div>
+{% endblock %}
