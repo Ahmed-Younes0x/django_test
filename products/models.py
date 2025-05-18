@@ -3,6 +3,8 @@ from django.db import models
 # Create your models here.
 class category(models.Model):
     name=models.CharField(max_length=50)
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
     name = models.CharField(max_length=100)
@@ -14,6 +16,7 @@ class Product(models.Model):
     cat = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/')
     cat_obj = models.ManyToManyField(category,blank=True)
+    # cat_obj = models.ManyToOneRel(id,category)
 
     def __str__(self):
         return self.name

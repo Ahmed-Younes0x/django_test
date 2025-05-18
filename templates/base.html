@@ -41,7 +41,18 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'p_list' %}">Product List</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'addproduct' %}">Add Product</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'addcat' %}">Add Category</a>
+            </li>
           </ul>
+          {% if user.is_authenticated %}
+          <p class="mx-1">Welcome back {{ user.username }}</p>
+          {% else %}
+          <p>welcome, Honored Guest</p>
+          {% endif %}
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>

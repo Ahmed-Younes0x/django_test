@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block content %} 
+{% if success %}
+<h2>Added successfully</h2>
+{%else%}
+<h2>Failed</h2>
+{% endif %}
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-6">
+      <h2>Add Category</h2>
+      <form method="post" enctype="multipart/form-data" class="mt-3">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Add</button>
+      </form>
+    </div>
+
+    <div class="col-6">
+      <ul>
+        {%for cat in category%}
+        <li>{{cat.name}}</li>
+        {%endfor%}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

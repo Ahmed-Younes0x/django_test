@@ -18,20 +18,22 @@ from django.contrib import admin
 from django.urls import path
 from contact.views import contact
 from home.views import home
-from login.views import loginn, logout_view, register_user
+from login.views import loginn, logoutt, register_user
 from settings.views import settings
-from products.views import Delete_Product, ProductList,AddProduct, Update_Product
+from products.views import Delete_Product, ProductList,AddProduct, Update_Product, AddCategory
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',ProductList.as_view(),name='default'),
     path('contact',contact,name='contact'),
     path('settings',settings,name='settings'),
     path('home',home,name='home'),
-    path('products',ProductList,name='p_list'),
-    path('addproduct',AddProduct,name='addproduct'),
-    path('updateproduct/<int:id>',Update_Product,name='updateproduct'),
-    path('deleteproduct/<int:id>',Delete_Product,name='deleteproduct'),
-    path('register',register_user,name='regform'),
-    path('login',loginn,name='loginform'),
-    path('logout',logout_view,name='logout'),
+    path('products',ProductList.as_view(),name='p_list'),
+    path('addproduct',AddProduct.as_view(),name='addproduct'),
+    path('addcat',AddCategory.as_view(),name='addcat'),
+    path('updateproduct/<int:id>',Update_Product.as_view(),name='updateproduct'),
+    path('deleteproduct/<int:id>',Delete_Product.as_view(),name='deleteproduct'),
+    path('register',register_user.as_view(),name='regform'),
+    path('login',loginn.as_view(),name='loginform'),
+    path('logout',logoutt,name='logout'),
 ]
