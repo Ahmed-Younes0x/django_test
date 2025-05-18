@@ -7,7 +7,7 @@ from . import forms
 
 class ProductList(View):
     def get(self,request):
-        products = Product.objects.all()  # Or any queryset you need
+        products = Product.objects.all() 
         return render(request, 'productlist.html', {'products': products})
 
 class AddProduct(View):
