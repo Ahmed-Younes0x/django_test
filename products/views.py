@@ -12,6 +12,16 @@ class ProductList(View):
 
 class AddProduct(View):
     def post(self,request):
+        # Product.objects.create(
+        #     name=request.POST.get('name'),
+        #     description=request.POST.get('description'),
+        #     creation_date=request.POST.get('creation_date'),
+        #     ex_date=request.POST.get('ex_date'),
+        #     country=request.POST.get('country'),
+        #     price=request.POST.get('price'),
+        #     cat=request.POST.get('cat'),
+        #     image=request.FILES['image']
+        # )
         form= forms.Addproduct(request.POST,request.FILES)
         if form.is_valid():
             form.save()
@@ -47,7 +57,7 @@ class Delete_Product(View):
         prod=Product.objects.get(id=id)
         if prod:
             prod.delete()
-            return redirect('p_list')
+            return redirect(ProductList)
         else:
             return render(request, 'deleteform.html')
         
