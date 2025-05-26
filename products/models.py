@@ -15,7 +15,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     cat = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/')
-    cat_obj = models.ManyToManyField(category,blank=True)
+    cat_obj = models.ManyToManyField(category,blank=True,null=True)
     # cat_obj = models.ManyToOneRel(id,category)
 
     def __str__(self):

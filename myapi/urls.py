@@ -24,5 +24,5 @@ from .views import CategoryApi, ProductApiViewSet, UserApi
 urlpatterns = [
     path('/UserApi',UserApi),
     path('/ProductApi',ProductApiViewSet.as_view()),
-    path('/CategoryApi',CategoryApi.as_view({'get':'list','post':'create'})),
+    path('/CategoryApi',CategoryApi.as_view({'get':'list','post':'create','put':'partial_update','delete':'delete'})),
 ]
